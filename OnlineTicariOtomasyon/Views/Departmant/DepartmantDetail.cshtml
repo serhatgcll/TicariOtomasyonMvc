@@ -1,0 +1,39 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<Employee>
+@{
+    ViewBag.Title = "DepartmantDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Departman Detay Sayfası</h2>
+<li class="nav-item d-none d-sm-inline-block">
+    <p style="color:red">Departman Adı:@ViewBag.value</p>
+ 
+</li>
+<br />
+<table class="table table-borderes">
+    <tr>
+        <th>#</th>
+        <th>Personel Ad</th>
+        <th>Personel Soyad</th>
+        <th>Görsel</th>
+        <th>İşe Başlangıç Tarihi</th>
+        <th>Satış Takibi</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.EmployeeName</td>
+            <td>@item.EmployeeSurname</td>
+            <td>@item.ImageUrl</td>
+            <td>@item.CreatedDate</td>
+            <td><a href="/Departmant/EmployeeSales/@item.Id" class="btn btn-default" style="background-color:lightyellow">Satışlar</a></td>
+        </tr>
+
+    }
+
+
+</table>
+

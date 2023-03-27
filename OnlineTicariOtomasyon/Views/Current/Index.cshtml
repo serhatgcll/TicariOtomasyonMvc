@@ -1,0 +1,51 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p>Toplamda @Model.Count() adet  cari kaydı vardır.</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cari Adı</th>
+            <th scope="col">Cari Soyadı</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Şehir</th>
+            <th scope="col">Email Adresi</th>
+            <th scope="col">Durum(Aktif/Pasif)</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Operasyon</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <th>@item.Id</th>
+                <th>@item.CurrentName</th>
+                <th>@item.CurrentSurname</th>
+                <th>@item.CurrentDescription</th>
+                <th>@item.City</th>
+                <th>@item.Email</th>
+                <th>@item.Status</th>
+                <th><a href="/Current/CurrentDelete/@item.Id" class="btn btn-danger">Sil</a></th>
+                <th><a href="/Current/GetCurrent/@item.Id" class="btn btn-info">Güncelle</a></th>
+                <th><a href="/Current/CurrentSalesHistory/@item.Id" class="btn btn-success">Satış Geçmişi</a></th>
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Current/CurrentAdd/" class="btn btn-primary">Yeni Cari Ekle</a>
+

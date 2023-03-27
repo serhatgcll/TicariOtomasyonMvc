@@ -1,0 +1,27 @@
+﻿@model OnlineTicariOtomasyon.Models.Class.Category
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info" style="text-align:center"><b style="color:red"  >@Model.CategoryName</b> Kategorisinde Güncelleme İşlemi Yapılacak</h5>
+
+@using (Html.BeginForm("CategoryEdit", "Category", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kategori Adı:")
+    
+    @Html.TextBoxFor(x => x.CategoryName,new {@class="form-control" })
+
+    @Html.Label("Kategori Açıklaması:")
+    @Html.TextBoxFor(x => x.Description,new {@class="form-control" })
+    @Html.HiddenFor(x => x.Id)
+   
+
+
+
+</div>
+
+<button class="btn btn-info">Güncelle</button>
+}
+

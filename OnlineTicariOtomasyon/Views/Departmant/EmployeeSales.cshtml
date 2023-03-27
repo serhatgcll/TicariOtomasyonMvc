@@ -1,0 +1,41 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<SalesMove>
+@{
+    ViewBag.Title = "EmployeeSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info" style="text-align:center"><b style="color:red">@ViewBag.employee</b> Adlı Çalışanın Satış Durumu</h5>
+
+<table class="table table-borderes">
+    <tr>
+        <th>#</th>
+        <th>Satış Yapan Personel</th>
+        <th>Ürün Adı</th>
+        <th>Cari</th>
+        <th>fiyat</th>
+        <th>Adet</th>
+        <th>Toplam Tutar</th>
+        <th>Satış Tarihi</th>
+        <th>Operasyon</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+
+            <td>@item.Product.ProductName</td>
+            <td>@item.Current.CurrentName @item.Current.CurrentSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Amount</td>
+            <td>@item.TotalPrice</td>
+            <td>@item._Date</td>
+            <td><a href="#" class="btn btn-default" style="background-color:lightyellow">Yazdır</a></td>
+        </tr>
+
+    }
+
+
+</table>

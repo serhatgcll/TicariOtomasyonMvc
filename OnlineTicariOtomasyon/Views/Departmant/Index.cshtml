@@ -1,0 +1,44 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<p>Toplamda @Model.Count() adet  Departman vardır.</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Departman Adı</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Sil</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Departman Detayları</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <th>@item.Id</th>
+                <th>@item.DepartmentName</th>
+                <th>@item.Description</th>
+                
+                <th><a href="/Departmant/DepartmantDelete/@item.Id" class="btn btn-danger">Sil</a></th>
+                <th><a href="/Departmant/GetDepartmant/@item.Id" class="btn btn-info">Güncelle</a></th>
+                <th><a href="/Departmant/DepartmantDetail/@item.Id" class="btn btn-success" style="background-color:burlywood">Departman Detay</a></th>
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a href="/Departmant/DepartmantAdd/" class="btn btn-success">Yeni Departman Ekle</a>
+

@@ -1,0 +1,22 @@
+﻿@model OnlineTicariOtomasyon.Models.Class.Category
+@{
+    ViewBag.Title = "CategoryAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info"style="text-align:center" > Yeni Kategori Ekle</h5>
+
+<form class="form-group" method="post">
+    @Html.Label("Kategori Adı:")
+    @Html.TextBoxFor(c => c.CategoryName, new { @class = "form-control" })
+
+    @Html.Label("Kategori Açıklaması:")
+    @Html.TextAreaFor(c => c.Description, new{@class = "form-control" })
+    <br />
+    
+    <button class="btn btn-success">Kaydet</button>
+    
+
+
+</form>
+

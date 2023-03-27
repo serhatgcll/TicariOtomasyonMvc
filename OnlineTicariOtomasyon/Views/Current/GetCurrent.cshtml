@@ -1,0 +1,38 @@
+﻿@model OnlineTicariOtomasyon.Models.Class.Current 
+@{
+    ViewBag.Title = "GetCurrent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info" style="text-align:center"><b style="color:red">@Model.CurrentName @Model.CurrentSurname</b> Carisinde Güncelleme İşlemi Yapılacak</h5>
+
+@using (Html.BeginForm("CurrentEdit", "Current", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Cari Adı:")
+
+    @Html.TextBoxFor(c => c.CurrentName, new { @class = "form-control" })
+
+    @Html.Label("Cari Soyadı:")
+    @Html.TextBoxFor(d => d.CurrentSurname, new { @class = "form-control" })
+
+    @Html.Label("Açıklama:")
+    @Html.TextBoxFor(d => d.CurrentDescription, new { @class = "form-control" })
+
+    @Html.Label("Şehir:")
+    @Html.TextBoxFor(d => d.City, new { @class = "form-control" })
+
+    @Html.Label("Mail Adresi:")
+    @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+
+    @Html.Label("Durumu:")
+    @Html.TextBoxFor(d => d.Status, new { @class = "form-control" })
+
+
+    @Html.HiddenFor(d => d.Id)
+
+</div>
+
+    <button class="btn btn-info">Güncelle</button>
+}
+
