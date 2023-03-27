@@ -65,3 +65,8 @@ C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\O
 C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig4.resources
 C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig5.resources
 C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig6.resources
+C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig7.resources
+C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig8.resources
+C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig10.resources
+C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig11.resources
+C:\Users\guclu\OneDrive\Masaüstü\onlineticariotomasyon\OnlineTicariOtomasyon\OnlineTicariOtomasyon\obj\Debug\OnlineTicariOtomasyon.Migrations._mig12.resources

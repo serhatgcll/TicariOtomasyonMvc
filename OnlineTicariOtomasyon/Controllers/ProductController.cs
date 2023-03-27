@@ -85,6 +85,13 @@ namespace OnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult ReportWizardProduct()
+        {
+
+            var result = context.Products.ToList();
+            return View(result);
+        }
+
 
     }
 }

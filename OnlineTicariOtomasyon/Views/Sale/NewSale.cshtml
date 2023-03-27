@@ -1,0 +1,42 @@
+﻿ @model OnlineTicariOtomasyon.Models.Class.SalesMove
+@{
+    ViewBag.Title = "NewSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 style="text-align:center" class="alert alert-default-info">Yeni Satış Sayfası</h5>
+<br />
+
+<form class="form-group" method="post">
+
+
+    @Html.Label("Ürün Adı:")
+    @Html.DropDownListFor(x => x.Product.Id, (List<SelectListItem>)ViewBag.prod, new { @class = "form-control" })
+
+    @Html.Label("Cari Adı:")
+    @Html.DropDownListFor(x => x.CurrentId, (List<SelectListItem>)ViewBag.current, new { @class = "form-control" })
+
+
+    @Html.Label("Personel Adı:")
+    @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.emp, new { @class = "form-control" })
+
+
+
+
+    @Html.Label("Adet:")
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+
+
+    @Html.Label("Adet Fiyat:")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+
+    
+
+
+    @Html.Label("Toplam Tutar:")
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+
+    <br />
+    <button class="btn btn-success">Satış Yap</button>
+
+</form>

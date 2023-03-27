@@ -1,0 +1,62 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<SalesMove>
+@{
+    ViewBag.Title = "SaleDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info" style="text-align:center">Satış Detayı</h5>
+
+<table id="tableSaleDetail" class="table table-borderes">
+    <thead>
+
+        <tr>
+            <th>#</th>
+            <th>Satış Yapan Personel</th>
+            <th>Ürün Adı</th>
+            <th>Cari</th>
+            <th>fiyat</th>
+            <th>Adet</th>
+            <th>Toplam Tutar</th>
+            <th>Satış Tarihi</th>
+
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+
+            <td>@item.Product.ProductName</td>
+            <td>@item.Current.CurrentName @item.Current.CurrentSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Amount</td>
+            <td>@item.TotalPrice</td>
+            <td>@item.Date_</td>
+
+        </tr>
+
+    }
+
+
+</table>
+<button class="btn btn-group-toggle"> Yazdır</button>
+
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tableSaleDetail').dataTable({});
+</script>

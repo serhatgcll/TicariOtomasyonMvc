@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace OnlineTicariOtomasyon.Models.Class
 {
     public class SalesMove
-    {   [Key]
+    {
+        
+
+        [Key]
         public int Id { get; set; }
-        public DateTime _Date { get; set; }
+       
+        public DateTime Date_ { get; set; }
         public int Amount { get; set; }
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
@@ -20,7 +25,7 @@ namespace OnlineTicariOtomasyon.Models.Class
         public virtual Product  Product { get; set; }
         public virtual Current  Current { get; set; }
 
-
+       
 
     }
 }

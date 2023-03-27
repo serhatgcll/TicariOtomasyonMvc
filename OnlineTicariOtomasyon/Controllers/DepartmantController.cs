@@ -16,8 +16,8 @@ namespace OnlineTicariOtomasyon.Controllers
             var result = context.Departments.Where(c => c.Status == true).ToList();
             return View(result);
         }
-         [HttpGet]
-        public ActionResult DepartmantAdd( )
+        [HttpGet]
+        public ActionResult DepartmantAdd()
         {
             return View();
         }
@@ -62,10 +62,14 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult EmployeeSales(int id)
         {
             var result = context.SalesMoves.Where(x => x.EmployeeId == id).ToList();
-            var emp = context.Employees.Where(c => c.Id == id).Select(y => y.EmployeeName +" " +y.EmployeeSurname).FirstOrDefault();
+            var emp = context.Employees.Where(c => c.Id == id).Select(y => y.EmployeeName + " " + y.EmployeeSurname).FirstOrDefault();
 
             ViewBag.employee = emp;
             return View(result);
         }
+
+      
+
+
     }
 }
