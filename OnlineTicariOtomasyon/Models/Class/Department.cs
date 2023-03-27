@@ -18,6 +18,7 @@ namespace OnlineTicariOtomasyon.Models.Class
         [StringLength(100)]
         public string Description { get; set; }
         public bool Status { get; set; }
+       
         public ICollection<Employee> Employees { get; set; }
     }
 }

@@ -1,0 +1,57 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<Employee>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<p class="alert alert-default-info">Toplam aktif personel sayısı:<b style="color:red">@Model.Count()</b></p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Personel Adı</th>
+            <th scope="col">Personel Soyadı</th>
+            <th scope="col">Görsel</th>
+            <th scope="col">İşe Giriş Tarihi</th>
+            <th scope="col">Personel Bilgilerine Ait Güncelleme Tarihi</th>
+            <th scope="col">Durum(Aktif/Pasif)</th>
+            <th scope="col">Çalıştığı Departman</th>
+       
+            <th scope="col">Sil</th>
+            <th scope="col">Güncelle</th>
+            <th scope="col">Satış Geçmişi</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <th>@item.Id</th>
+                <th>@item.EmployeeName</th>
+                <th>@item.EmployeeSurname</th>
+                <th>@item.ImageUrl</th>
+                <th>@item.CreatedDate </th>
+                <th>@item.UpdatedDate </th>
+                <th>@item.Status</th>
+                <th>Burada Departmandan gelen ayarlama yapılacak</th>
+                
+        
+                <th><a href="/Employee/EmployeeDelete/@item.Id" class="btn btn-outline-danger">Sil</a></th>
+                <th><a href="/Employee/EmployeeGet/@item.Id" class="btn btn-outline-warning">Güncelle</a></th>
+                <th><a href="/Departmant/EmployeeSales/@item.Id" class="btn btn-outline-success"> Satış Detayı</a></th>
+
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="/Employee/EmployeeAdd/" class="btn btn-primary">Yeni Personel Kaydı</a>
+
+

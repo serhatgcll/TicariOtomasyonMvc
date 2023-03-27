@@ -1,0 +1,32 @@
+﻿@model OnlineTicariOtomasyon.Models.Class.Employee
+@{
+    ViewBag.Title = "EmployeeGet";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 class="alert alert-default-info" style="text-align:center"><b style="color:red">@Model.EmployeeName @Model.EmployeeSurname </b> Personeli Bilgilerinde Güncelleme İşlemi Yapılacak</h5>
+
+@using (Html.BeginForm("UpdateEmployee", "Employee", FormMethod.Post))
+{
+<div class="form-group">
+
+    @Html.HiddenFor(c => c.Id)
+
+    @Html.Label("Personel Adı:")
+    @Html.TextBoxFor(c => c.EmployeeName, new { @class = "form-control" })
+
+    @Html.Label("Personel Soyadı:")
+    @Html.TextBoxFor(c => c.EmployeeSurname, new { @class = "form-control" })
+
+
+    @Html.Label("Görsel:")
+    @Html.TextBoxFor(c => c.ImageUrl, new { @class = "form-control" })
+
+    @Html.Label("Çalışacağı Departman:")
+    @Html.DropDownListFor(c =>c.Department.Id, (List<SelectListItem>)ViewBag.val, new { @class = "form-control" })
+
+
+</div>
+    <button class="btn btn-info">Güncelle</button>
+
+}
