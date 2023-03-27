@@ -64,7 +64,7 @@ namespace OnlineTicariOtomasyon.Controllers
         {
             var results = context.SalesMoves.Where(x => x.CurrentId == id).ToList();
             var currentName = context.Currents.Where(x => x.Id == id).Select(y => y.CurrentName + " " + y.CurrentSurname).FirstOrDefault();
-            ViewBag.cr = currentName;
+            ViewBag.current = currentName;
             return View(results);
 
         }
