@@ -6,7 +6,7 @@
 
 }
 <p>Toplamda @Model.Count() adet  kategori vardır.</p>
-<table class="table table-bordered">
+<table id="categoryIndex" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        
+
         @foreach (var item in Model)
         {
             <tr>
@@ -35,7 +35,7 @@
                 <th>@item.Status</th>
                 <th><a href="/Category/CategoryDelete/@item.Id" class="btn btn-danger">Sil</a></th>
                 <th><a href="/Category/GetCategory/@item.Id" class="btn btn-info">Güncelle</a></th>
-              
+
 
             </tr>
         }
@@ -44,3 +44,18 @@
 </table>
 <a href="/Category/CategoryAdd" class="btn btn-primary">Kategori Ekle</a>
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#categoryIndex').dataTable({});
+</script>

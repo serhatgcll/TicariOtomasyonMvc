@@ -15,14 +15,17 @@ namespace OnlineTicariOtomasyon.Models.Class
         [StringLength(1)]
         public string SerialNo { get; set; }
         [Column(TypeName = "Varchar")]
-        [StringLength(10)]
+        [StringLength(20)]
         public string RowNo { get; set; }
         public DateTime _Date { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string TaxOffice { get; set; }
-        public DateTime _Time { get; set; }
+        [Column(TypeName = "Char")]
+        [StringLength(5)]
+        public string _Time { get; set; }
+        public decimal TotalPrice { get; set; }
 
         public ICollection<InvoiceExpense> InvoiceExpenses { get; set; }
 

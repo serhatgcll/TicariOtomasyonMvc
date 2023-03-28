@@ -1,0 +1,38 @@
+﻿@model OnlineTicariOtomasyon.Models.Class.Invoice
+@{
+    ViewBag.Title = "InvoiceAdd";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5 style="text-align:center" class="alert alert-default-info">Yeni Fatura Oluştur</h5>
+<br />
+
+<form class="form-group" method="post">
+
+
+    @Html.Label("Fatura Seri No:")
+    @Html.TextBoxFor(x => x.SerialNo, new {@Value="A",disabled=true, @class = "form-control" })
+
+
+    @Html.Label("Fatura Sıra No:")
+    @Html.TextBoxFor(x => x.RowNo,new {@Value=@ViewBag.result, @class = "form-control" })
+
+
+   
+
+
+    @Html.Label("Vergi Dairesi:")
+    @Html.TextBoxFor(x => x.TaxOffice, new { @class = "form-control" })
+
+
+    @Html.Label("Toplam Tutar:")
+    @Html.TextBoxFor(x => x.TotalPrice, new { @class = "form-control" })
+
+
+  
+    <br />
+
+
+    <button class="btn btn-success">Kaydet</button>
+
+</form>

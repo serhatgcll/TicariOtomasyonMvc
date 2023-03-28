@@ -7,7 +7,7 @@
 
 
 <p>Toplamda @Model.Count() adet  cari kaydı vardır.</p>
-<table class="table table-bordered">
+<table id="currentIndex" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -49,3 +49,18 @@
 </table>
 <a href="/Current/CurrentAdd/" class="btn btn-primary">Yeni Cari Ekle</a>
 
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#currentIndex').dataTable({});
+</script>
