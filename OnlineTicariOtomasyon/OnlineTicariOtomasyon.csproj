@@ -132,8 +132,10 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
+    <Compile Include="Controllers\KurlarController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
+    <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,6 +199,7 @@
     <Compile Include="Models\Class\Admin.cs" />
     <Compile Include="Models\Class\Category.cs" />
     <Compile Include="Models\Class\Context.cs" />
+    <Compile Include="Models\Class\Currency.cs" />
     <Compile Include="Models\Class\Current.cs" />
     <Compile Include="Models\Class\Department.cs" />
     <Compile Include="Models\Class\Employee.cs" />
@@ -2942,6 +2945,8 @@
     <Content Include="Views\Invoice\InvoiceAdd.cshtml" />
     <Content Include="Views\Invoice\InvoiceDetail.cshtml" />
     <Content Include="Views\Invoice\NewInvoiceExpense.cshtml" />
+    <Content Include="Views\Statistic\Index.cshtml" />
+    <Content Include="Views\Kurlar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

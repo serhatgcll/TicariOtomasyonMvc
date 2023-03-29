@@ -1,0 +1,224 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box">
+                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Toplam Cari</h3></span>
+                        <span class="info-box-number">
+                            
+                            <h3> @ViewBag.currentCount</h3>
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Toplam Ürün Sayımız</h3></span>
+                        <span class="info-box-number">
+
+                            <h3> @ViewBag.productCount</h3>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Personel Sayımız</h3></span>
+                        <span class="info-box-number">
+
+                            <h3> @ViewBag.employeeCount</h3>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="info-box mb-3">
+                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text"><h3>Toplam Stok Sayısı</h3></span>
+                        <span class="info-box-number">
+
+                            <h3> @ViewBag.sumStock</h3>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+                       
+
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Info boxes -->
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><h3>Kritik Stok</h3></span>
+                                <span class="info-box-number">
+
+                                    <p>@ViewBag.critic</p>
+
+                                </span>
+                                
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><h3>Marka Sayısı</h3></span>
+                                <span class="info-box-number">
+
+                                    <h3> @ViewBag.brandCount</h3>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <!-- fix for small devices only -->
+                    <div class="clearfix hidden-md-up"></div>
+
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><h3>Max Fiyatlı Ürün</h3></span>
+                                <span class="info-box-number">
+
+                                    <h3> @ViewBag.deg</h3>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-12 col-sm-6 col-md-3">
+                        <div class="info-box mb-3">
+                            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                            <div class="info-box-content">
+                                <span class="info-box-text"><h3>En fazla Ürün Alan Cari</h3></span>
+                                <span class="info-box-number">
+
+                                    <h3> @ViewBag.cuurentNameSurname</h3>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+
+
+                <br />
+                <section class="content">
+                    <div class="container-fluid">
+                        <!-- Info boxes -->
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <div class="info-box">
+                                    <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text"><h3>Ayın Max Satış Y.Per.</h3></span>
+                                        <span class="info-box-number">
+
+                                            <h3> @ViewBag.enCokSatisYapanPersonel</h3>
+                                        </span>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text"><h3>Toplam Ürün Sayımız</h3></span>
+                                        <span class="info-box-number">
+
+                                            <h3> @ViewBag.productCount</h3>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <!-- fix for small devices only -->
+                            <div class="clearfix hidden-md-up"></div>
+
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text"><h3>Personel Sayımız</h3></span>
+                                        <span class="info-box-number">
+
+                                            <h3> @ViewBag.employeeCount</h3>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-12 col-sm-6 col-md-3">
+                                <div class="info-box mb-3">
+                                    <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+                                    <div class="info-box-content">
+                                        <span class="info-box-text"><h3>Toplam Stok Sayısı</h3></span>
+                                        <span class="info-box-number">
+
+                                            <h3> @ViewBag.sumStock</h3>
+                                    </div>
+                                    <!-- /.info-box-content -->
+                                </div>
+                                <!-- /.info-box -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->

@@ -9,7 +9,9 @@ namespace OnlineTicariOtomasyon.Controllers
 {
     public class SaleController : Controller
     {
-        Context context = new Context();
+          Context context = new Context();
+
+       
         public ActionResult Index()
         {
             var results = context.SalesMoves.ToList();
@@ -21,8 +23,8 @@ namespace OnlineTicariOtomasyon.Controllers
             List<SelectListItem> value = (from x in context.Products.Where(y => y.Status == true).ToList()
                                           select new SelectListItem
                                           {
-                                              Text=x.ProductName,
-                                              Value=x.Id.ToString()
+                                              Text = x.ProductName,
+                                              Value = x.Id.ToString()
                                           }).ToList();
 
             List<SelectListItem> value2 = (from x in context.Currents.Where(y => y.Status == true).ToList()
@@ -49,7 +51,9 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult NewSale(SalesMove sales)
         {
-            sales.Date_=DateTime.Parse (DateTime.Now.ToShortDateString());
+        
+
+                sales.Date_=DateTime.Parse (DateTime.Now.ToShortDateString());
          
             
             context.SalesMoves.Add(sales);
@@ -63,5 +67,9 @@ namespace OnlineTicariOtomasyon.Controllers
             var result = context.SalesMoves.Where(x => x.Id == id).ToList();
             return View(result);
         }
+
+       
     }
+
+    
 }
