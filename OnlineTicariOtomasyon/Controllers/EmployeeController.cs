@@ -82,7 +82,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var result = _context.Employees.Find(id);
             result.Status = false;
             _context.SaveChanges();
-            return View(result);
+            return RedirectToAction("Index");
         }
 
 

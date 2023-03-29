@@ -15,25 +15,25 @@ namespace OnlineTicariOtomasyon.Controllers
         // GET: Kurlar
         string url = "https://www.tcmb.gov.tr/kurlar/today.xml";
         WebClient webClient = new WebClient();
-    
+
         public ActionResult Index()
         {
 
-            ViewBag.result = GetLastUpdatedTime().ToString("dd.MM.yyyy HH:mm:ss");
+            ViewBag.result = GetLastUpdatedTime().ToString("dd.MM.yyyy");
 
-            
+
             return View(GetCurrencies());
-     
+
         }
 
         public List<Currency> GetCurrencies()
         {
-            
-                string xmlData = webClient.DownloadString(url);
+
+            string xmlData = webClient.DownloadString(url);
             XDocument doc = XDocument.Parse(xmlData);
             List<Currency> currencies = new List<Currency>();
 
-         
+
             var usdNode = doc.Descendants("Currency")
                              .Where(c => c.Attribute("Kod").Value == "USD").FirstOrDefault();
 
@@ -50,7 +50,7 @@ namespace OnlineTicariOtomasyon.Controllers
                 currencies.Add(usd);
             }
 
-         
+
             var euroNode = doc.Descendants("Currency")
                               .Where(c => c.Attribute("Kod").Value == "EUR").FirstOrDefault();
 
@@ -71,20 +71,14 @@ namespace OnlineTicariOtomasyon.Controllers
         }
 
 
-        public  DateTime GetLastUpdatedTime()
+        public DateTime GetLastUpdatedTime()
         {
             var _xmlData = webClient.DownloadString(url);
             var doc = XDocument.Parse(_xmlData);
             var tarihString = doc.Descendants("Tarih_Date").FirstOrDefault().Attribute("Tarih").Value;
             var tarih = DateTime.ParseExact(tarihString, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture);
-
-            var lastUpdateTime = new DateTime(tarih.Year, tarih.Month, tarih.Day, 15, 30, 0);
-            if (DateTime.Now < lastUpdateTime)
-            {
-                lastUpdateTime = lastUpdateTime.AddDays(-1);
-            }
-
-            return lastUpdateTime;
+        
+            return tarih;
         }
     }
 }

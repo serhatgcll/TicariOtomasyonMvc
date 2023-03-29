@@ -208,6 +208,7 @@
     <Compile Include="Models\Class\InvoiceExpense.cs" />
     <Compile Include="Models\Class\Product.cs" />
     <Compile Include="Models\Class\SalesMove.cs" />
+    <Compile Include="Models\Class\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2947,6 +2948,8 @@
     <Content Include="Views\Invoice\NewInvoiceExpense.cshtml" />
     <Content Include="Views\Statistic\Index.cshtml" />
     <Content Include="Views\Kurlar\Index.cshtml" />
+    <Content Include="Views\Statistic\SimpleTables.cshtml" />
+    <Content Include="Views\Statistic\GetPartialViewResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
