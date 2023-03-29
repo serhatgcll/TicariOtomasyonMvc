@@ -101,23 +101,7 @@ namespace OnlineTicariOtomasyon.Controllers
             return View();
         }
 
-        public ActionResult SimpleTables()
-        {
-
-            var result = context.Categories.Where(x => x.Status == false).ToList();
-            var q = (from x in context.Currents
-                     group x by x.City into g
-                     select new ViewModel
-                     {
-                         City = g.Key,
-                         Adet = g.Count()
-                     });
-            return View(q.ToList());
-        }
-        public PartialViewResult GetPartialViewResult()
-        {
-
-            return PartialView();
-        }
+       
+       
     }
 }

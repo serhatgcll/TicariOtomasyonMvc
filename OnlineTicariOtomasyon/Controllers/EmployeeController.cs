@@ -85,7 +85,7 @@ namespace OnlineTicariOtomasyon.Controllers
             return RedirectToAction("Index");
         }
 
-
+       
 
     }
 

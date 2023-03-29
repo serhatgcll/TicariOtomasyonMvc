@@ -1,0 +1,143 @@
+﻿@using OnlineTicariOtomasyon.Models.Class
+@model List<ToDoList>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0/plugins/fontawesome-free/css/all.min.css">
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/jqvmap/jqvmap.min.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0dist/css/adminlte.min.css?v=3.2.0">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" href="~/Web/AdminLte-3.2.0plugins/summernote/summernote-bs4.min.css">
+    <script nonce="0c4bde6f-e274-40e3-9be4-6ace47ada3ef">(function (w, d) { !function (di, dj, dk, dl) { di[dk] = di[dk] || {}; di[dk].executed = []; di.zaraz = { deferred: [], listeners: [] }; di.zaraz.q = []; di.zaraz._f = function (dm) { return function () { var dn = Array.prototype.slice.call(arguments); di.zaraz.q.push({ m: dm, a: dn }) } }; for (const dp of ["track", "set", "debug"]) di.zaraz[dp] = di.zaraz._f(dp); di.zaraz.init = () => { var dq = dj.getElementsByTagName(dl)[0], dr = dj.createElement(dl), ds = dj.getElementsByTagName("title")[0]; ds && (di[dk].t = dj.getElementsByTagName("title")[0].text); di[dk].x = Math.random(); di[dk].w = di.screen.width; di[dk].h = di.screen.height; di[dk].j = di.innerHeight; di[dk].e = di.innerWidth; di[dk].l = di.location.href; di[dk].r = dj.referrer; di[dk].k = di.screen.colorDepth; di[dk].n = dj.characterSet; di[dk].o = (new Date).getTimezoneOffset(); if (di.dataLayer) for (const dw of Object.entries(Object.entries(dataLayer).reduce(((dx, dy) => ({ ...dx[1], ...dy[1] }))))) zaraz.set(dw[0], dw[1], { scope: "page" }); di[dk].q = []; for (; di.zaraz.q.length;) { const dz = di.zaraz.q.shift(); di[dk].q.push(dz) } dr.defer = !0; for (const dA of [localStorage, sessionStorage]) Object.keys(dA || {}).filter((dC => dC.startsWith("_zaraz_"))).forEach((dB => { try { di[dk]["z_" + dB.slice(7)] = JSON.parse(dA.getItem(dB)) } catch { di[dk]["z_" + dB.slice(7)] = dA.getItem(dB) } })); dr.referrerPolicy = "origin"; dr.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(di[dk]))); dq.parentNode.insertBefore(dr, dq) };["complete", "interactive"].includes(dj.readyState) ? zaraz.init() : di.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document);</script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
+
+        <div class="preloader flex-column justify-content-center align-items-center">
+            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">
+                    <i class="ion ion-clipboard mr-1"></i>
+                    Şirket İçi Yapılacak İşler
+                </h3>
+                <div class="card-tools">
+                    <ul class="pagination pagination-sm">
+                        <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
+                        <li class="page-item"><a href="#" class="page-link">1</a></li>
+                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                        <li class="page-item"><a href="#" class="page-link">3</a></li>
+                        <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <ul class="todo-list" data-widget="todo-list">
+                    @foreach (var item in Model)
+                    {
+
+
+                        <li>
+
+                            <span class="handle">
+                                <i class="fas fa-ellipsis-v"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </span>
+
+                            <div class="icheck-primary d-inline ml-2">
+                                <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                                <label for="todoCheck1"></label>
+                            </div>
+
+                            <span class="text">@item.Description</span>
+
+                            <small class="badge badge-danger"><i class="far fa-clock"></i></small>
+
+                            <div class="tools">
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-trash-o"></i>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+
+            <div class="card-footer clearfix">
+                <button type="button" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Yeni Bir İş Oluştur</button>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+    <aside class="control-sidebar control-sidebar-dark">
+    </aside>
+
+    </div>
+
+
+    <script src="~/Web/AdminLte-3.2.0plugins/jquery/jquery.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/jquery-ui/jquery-ui.min.js"></script>
+
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/chart.js/Chart.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/sparklines/sparkline.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/Web/AdminLte-3.2.0plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/jquery-knob/jquery.knob.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/moment/moment.min.js"></script>
+    <script src="~/Web/AdminLte-3.2.0plugins/daterangepicker/daterangepicker.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/summernote/summernote-bs4.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0dist/js/adminlte.js?v=3.2.0"></script>
+
+    <script src="~/Web/AdminLte-3.2.0dist/js/demo.js"></script>
+
+    <script src="~/Web/AdminLte-3.2.0dist/js/pages/dashboard.js"></script>
+</body>
+</html>
