@@ -1,8 +1,47 @@
-﻿
+﻿@model OnlineTicariOtomasyon.Models.Class.Current
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CurrentPanelLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h5 class="alert alert-default-info" style="text-align:center"><b style="color:red">Bilgilerim</b></h5>
+
+@using (Html.BeginForm("Index", "CurrentPanel", FormMethod.Post))
+
+{
+    <table class="table table-bordered">
+        <tbody>
+            
+            <tr>
+                <td>
+                    <label>Mail Adresi:@HttpContext.Current.User.Identity.Name</label>
+                </td>
+
+            </tr>
+            <tr>
+                <th>@Html.Label("Ad")</th>
+                <td>@Html.TextBoxFor(c => c.CurrentName, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <th>@Html.Label("Soyad")</th>
+                <td>@Html.TextBoxFor(c => c.CurrentSurname, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <th>
+                    @Html.Label("Şehir")
+                </th>
+                <th>@Html.TextBoxFor(c => c.City, new { @class = "form-control" })</th>
+            </tr>
+            <tr>
+                <th>
+                    @Html.Label("Şifre")
+                </th>
+                <td>@Html.TextBoxFor(c => c.CurrentPassword, new { @class = "form-control" })</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <button class="btn btn-warning">Bilgilerimi Güncelle</button>
+}
+
 

@@ -3013,7 +3013,7 @@
     <Content Include="webpanel\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shared\_CurrentPanelLayout.cshtml" />
     <Content Include="Views\CurrentPanel\Index.cshtml" />
-    <Content Include="Views\Login\CurrentPartial.cshtml" />
+    <Content Include="Views\CurrentPanel\Orders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,38 +19,38 @@ namespace OnlineTicariOtomasyon.Controllers
 
 
         [HttpGet]
-        public PartialViewResult LoginPartial()
+        public ActionResult LoginPartial()
         {
-            return PartialView();
+            return View();
         }
         [HttpPost]
-        public PartialViewResult LoginPartial(Current current)
+        public ActionResult LoginPartial(Current current)
         {
 
             context.Currents.Add(current);
             current.CurrentDescription = "Login partial üzerinden eklenmiştir";
             current.Status = true;
             context.SaveChanges();
-            return PartialView();
+            return View();
         }
         [HttpGet]
-        public PartialViewResult CurrentPartial()
+        public ActionResult CurrentPartial()
         {
-            return PartialView();
+            return View();
         }
         [HttpPost]
-        public PartialViewResult CurrentPartial(Current current)
+        public ActionResult CurrentPartial(Current current)
         {
             var results = context.Currents.FirstOrDefault(x => x.Email == current.Email && x.CurrentPassword == current.CurrentPassword);
             if (results != null)
             {
                 FormsAuthentication.SetAuthCookie(results.Email, false);
                 Session["Email"] = results.Email.ToString();
-                return RedirectToRoutePermanent("CurrentPanel", "Cari")
+                return RedirectToAction("Index", "CurrentPanel");
             }
             else
             {
-                return PartialView();
+                return RedirectToAction("Index", "Login");
             }
 
         }
