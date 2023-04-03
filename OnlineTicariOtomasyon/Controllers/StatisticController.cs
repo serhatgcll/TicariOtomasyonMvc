@@ -95,7 +95,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var bugünKasaTutari = context.SalesMoves.Count(x => x.Date_ == today).ToString();
             ViewBag.bugünKasaTutari = bugünKasaTutari;
 
-            var bugünSatis = context.SalesMoves.Where(x => x.Date_ == today).Sum(y => y.TotalPrice).ToString();
+            var bugünSatis = context.SalesMoves.Where(x => x.Date_ == today).Sum(y =>(decimal?) y.TotalPrice).ToString();
             ViewBag.bugünSatis = bugünSatis;
 
             return View();

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using OnlineTicariOtomasyon.Models.Class;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
@@ -14,7 +15,7 @@ namespace OnlineTicariOtomasyon.Controllers
         // GET: Product
 
         Context context = new Context();
-        public ActionResult Index(string q,int page = 1)
+        public ActionResult Index(string q, int page = 1)
         {
             var product = from x in context.Products select x;
             if (!string.IsNullOrEmpty(q))
@@ -40,6 +41,14 @@ namespace OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult ProductAdd(Product product)
         {
+            if (Request.Files.Count > 0)
+            {
+                string fileName = Path.GetFileName(Request.Files[0].FileName);
+                string extension = Path.GetExtension(Request.Files[0].FileName);
+                string path = "~/Image/" + fileName + extension;
+                Request.Files[0].SaveAs(Server.MapPath(path));
+                product.İmageUrl = "/Image/" + fileName + extension;
+            }
             product.CreatedDate = DateTime.Now;
             product.Status = true;
             context.Products.Add(product);

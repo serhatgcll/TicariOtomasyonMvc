@@ -9,15 +9,17 @@
 <table id="InvoiceIndex" class="table table-bordered">
     <thead>
         <tr>
-            <th scope="col">#</th>
+
             <th scope="col">Seri No</th>
             <th scope="col">Sıra No</th>
             <th scope="col">Tarih</th>
-            <th scope="col">Vergi Dairesi</th>
+
             <th scope="col">Saat</th>
-            <th scope="col">Toplam Tutar</th>
-            <th scope="col">Fatura Güncelle</th>
+            <th scope="col">Vergi Dairesi</th>
+            <th scope="col">Toplam Tutar(₺)</th>
+
             <th scope="col">Detaylar</th>
+            <th scope="col">Yeni Kalem</th>
 
 
         </tr>
@@ -27,15 +29,16 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th>@item.Id</th>
+
                 <th>@item.SerialNo</th>
                 <th>@item.RowNo</th>
                 <th>@item._Date</th>
                 <th>@item.TaxOffice </th>
                 <th>@item._Time</th>
-                <th>@item.TotalPrice</th>
+                <th>@item.TotalPrice ₺</th>
 
                 <th><a href="/Invoice/InvoiceDetail/@item.Id" class="btn btn-danger">Detaylar</a></th>
+                <th><a href="/Invoice/InvoiceAdd/@item.Id" class="btn btn-danger">Yeni Kalem Girişi</a></th>
 
 
 
@@ -45,21 +48,40 @@
 
 </table>
 <a href="/Invoice/InvoiceAdd/" class="btn btn-primary">Yeni Fatura Oluştur</a>
+<br />
+<br />
+<button type="button" class="btn btn-primary" style="background-color:aqua;color:white"
+        data-toggle="modal" data-target="#modal1">
+    PopUp Penceresi
+</button>
+
+<div class="modal" id="modal1">
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Dialog Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Sıra No ve Seri No</td>
+                        <td>Tarih</td>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.SerialNo-@item.RowNo</td>
+                        </tr>
+                    }
+
+                </table>
+                <button type="button" class="=btn btn-danger" data-dismiss="modal">Vazgeç</button>
 
 
-
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
-<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
-<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
-
-<script>
-    $('#InvoiceIndex').dataTable({});
-</script>

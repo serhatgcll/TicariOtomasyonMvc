@@ -6,51 +6,56 @@
 
 <h5 style="text-align:center" class="alert alert-default-info">Yeni Ürün Ekle</h5>
 <br />
-
-<form class="form-group" method="post">
-
-
-    @Html.Label("Ürün Adı:")
-    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+@using (Html.BeginForm("ProductAdd", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 
 
-    @Html.Label("Ürün Marka:")
-    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+
+    <form class="form-group" method="post">
 
 
-    @Html.Label("Açıklama:")
-    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+        @Html.Label("Ürün Adı:")
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
 
 
-    @Html.Label("Alış Fiyatı:")
-    @Html.TextBoxFor(x => x.BuyingPrice, new { @class = "form-control" })
+        @Html.Label("Ürün Marka:")
+        @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
 
 
-    @Html.Label("Satış Fiyatı:")
-    @Html.TextBoxFor(x => x.SellingPrice, new { @class = "form-control" })
+        @Html.Label("Açıklama:")
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
 
 
-    @Html.Label("Ürün Resmi:")
-    @Html.TextBoxFor(x => x.İmageUrl, new { @class = "form-control" })
+        @Html.Label("Alış Fiyatı:")
+        @Html.TextBoxFor(x => x.BuyingPrice, new { @class = "form-control" })
 
 
-    @Html.Label("Stok:")
-    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+        @Html.Label("Satış Fiyatı:")
+        @Html.TextBoxFor(x => x.SellingPrice, new { @class = "form-control" })
 
 
-    @Html.Label("Durum:")
-    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+        @Html.Label("Ürün Resmi:")
+        <input type="file" name="ImageUrl" />
+        <br />
 
 
-    @Html.Label("Kategori:")
-   @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.value,new {@class="form-control"})
-    <br />
+        @Html.Label("Stok:")
+        @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
 
 
-   <button class="btn btn-success">Kaydet</button>
+        @Html.Label("Durum:")
+        @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
 
-</form>
 
+        @Html.Label("Kategori:")
+        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+        <br />
+
+
+        <button class="btn btn-success">Kaydet</button>
+
+    </form>
+}
 
 
 

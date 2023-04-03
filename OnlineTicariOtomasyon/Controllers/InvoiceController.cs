@@ -14,6 +14,7 @@ namespace OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var list = context.Invoices.ToList();
+             
          
 
             return View(list);
