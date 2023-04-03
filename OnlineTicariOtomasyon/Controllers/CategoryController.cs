@@ -5,6 +5,8 @@ using System.Runtime.Remoting.Contexts;
 using System.Web;
 using System.Web.Mvc;
 using OnlineTicariOtomasyon.Models.Class;
+using PagedList;
+using PagedList.Mvc;
 
 
 namespace OnlineTicariOtomasyon.Controllers
@@ -13,9 +15,9 @@ namespace OnlineTicariOtomasyon.Controllers
     {
         OnlineTicariOtomasyon.Models.Class.Context context = new Models.Class.Context();
         // GET: Category
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var results = context.Categories.Where(c => c.Status == true).ToList();
+            var results = context.Categories.Where(c => c.Status == true).ToList().ToPagedList(page,10);
             return View(results);
         }
         [HttpGet]

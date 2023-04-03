@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OnlineTicariOtomasyon.Models.Class;
+using PagedList;
+using PagedList.Mvc;
 
 namespace OnlineTicariOtomasyon.Controllers
 {
@@ -12,10 +14,14 @@ namespace OnlineTicariOtomasyon.Controllers
         // GET: Product
 
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(string q,int page = 1)
         {
-            var result = context.Products.Where(p => p.Status == true).ToList();
-            return View(result);
+            var product = from x in context.Products select x;
+            if (!string.IsNullOrEmpty(q))
+            {
+                product = product.Where(y => y.ProductName.Contains(q) || y.Brand.Contains(q));
+            }
+            return View(product.ToList().ToPagedList(page, 8));
         }
         [HttpGet]
         public ActionResult ProductAdd()
@@ -66,7 +72,7 @@ namespace OnlineTicariOtomasyon.Controllers
             var result = context.Products.Find(id);
             return View("GetProduct", result);
         }
-      
+
         public ActionResult ProductEdit(Product prod)
         {
 

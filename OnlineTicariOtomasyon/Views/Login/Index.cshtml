@@ -51,9 +51,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="register-left">
                 <div class="register">
                     <p>Hoşgeldiniz</p>
-                    
+
                     <p>
-                        Mvc5 ile geliştirilen uygulamamızda Admin-Personel kişisel sayfası ve Cari kişisel sayfası olmak üzere toplamda 3 adet 
+                        Mvc5 ile geliştirilen uygulamamızda Admin-Personel kişisel sayfası ve Cari kişisel sayfası olmak üzere toplamda 3 adet
                         panel mevcuttur.Tarafınıza tanımlanmış biligilere istinaden sağ tarafta bulunan menülerden işlemler gerçekleştirebilirsiniz.
                     </p>
                     <div class="content3">
@@ -79,7 +79,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clear"> </div>
         </div>
         <!-- copyright -->
-        
         <!-- //copyright -->
     </section>
     <!-- //section -->
@@ -121,10 +120,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <p></p>
                     <div class="clear"></div>
                     <div class="login-agileits-top">
-                        <form action="#" method="post">
-                            <input type="text" class="name" name="personelKullanici" Placeholder="Kullanıcı Adı" required="" />
-                            <input type="password" class="password" name="pasword" Placeholder="Şifre" required="" />
+                        @using (Html.BeginForm("AdminLogin", "Login", FormMethod.Post))
+                        {
+                            <input type="text" class="name" name="UserName" Placeholder="Kullanıcı Adı" required="" />
+                            <input type="password" class="password" name="Password" Placeholder="Şifre" required="" />
                             <input type="submit" value="Giriş Yap">
+                        }
+
                         </form>
                     </div>
                 </div>
@@ -137,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="pop-up">
         <div id="small-dialog2" class="mfp-hide book-form">
 
-           @Html.Action("LoginPartial","Login")
+            @Html.Action("LoginPartial", "Login")
 
         </div>
     </div>

@@ -28,7 +28,7 @@ namespace OnlineTicariOtomasyon.Controllers
         {
 
             context.Currents.Add(current);
-            current.CurrentDescription = "Login partial üzerinden eklenmiştir";
+
             current.Status = true;
             context.SaveChanges();
             return View();
@@ -53,6 +53,27 @@ namespace OnlineTicariOtomasyon.Controllers
                 return RedirectToAction("Index", "Login");
             }
 
+        }
+        [HttpGet]
+        public ActionResult AdminLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+            var result = context.Admins.FirstOrDefault(c => c.UserName == admin.UserName && c.Password == admin.Password);
+            if (result != null)
+            {
+                FormsAuthentication.SetAuthCookie(result.UserName, false);
+                Session["UserName"] = result.UserName.ToString();
+                return RedirectToAction("Index", "Category");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+            return View();
         }
     }
 }

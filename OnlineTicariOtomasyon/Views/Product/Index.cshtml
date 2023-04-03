@@ -1,21 +1,30 @@
 ﻿@using OnlineTicariOtomasyon.Models.Class
-@model List<Product>
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Product>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<p>Toplamda @Model.Count() adet  ürün vardır.</p>
+<br />
+@using (Html.BeginForm("Index", "Product", FormMethod.Get))
+{
+    <p>
+        Ürün Adı:@Html.TextBox("q")
+        <input type="submit" value="Ara" />
+    </p>
+}
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th scope="col">#</th>
+
             <th scope="col">Ürün Adı</th>
             <th scope="col">Marka</th>
             <th scope="col">Açıklama</th>
             <th scope="col">Alış Fiyatı</th>
             <th scope="col">Satış Fiyatı</th>
-            <th scope="col">Görsel</th>
+
             <th scope="col">Stok Sayısı</th>
             <th scope="col">Oluşturma Tarihi</th>
             <th scope="col">Son Güncelleme Tarihi</th>
@@ -30,29 +39,30 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <th>@item.Id</th>
-            <th>@item.ProductName</th>
-            <th>@item.Brand</th>
-            <th>@item.Description</th>
-            <th>@item.BuyingPrice ₺</th>
-            <th>@item.SellingPrice ₺</th>
-            <th>@item.İmageUrl</th>
-            <th>@item.Stock</th>
-            <th>@item.CreatedDate</th>
-            <th>@item.UpdatedDate</th>
+            <tr>
 
-            <th>@item.Status</th>
-            <th>@item.Category.CategoryName</th>
-            <th><a href="/Product/ProductDelete/@item.Id" class="btn btn-danger">Sil</a></th>
-            <th><a href="/Product/GetProduct/@item.Id" class="btn btn-info">Güncelle</a></th>
+                <th>@item.ProductName</th>
+                <th>@item.Brand</th>
+                <th>@item.Description</th>
+                <th>@item.BuyingPrice ₺</th>
+                <th>@item.SellingPrice ₺</th>
+
+                <th>@item.Stock</th>
+                <th>@item.CreatedDate</th>
+                <th>@item.UpdatedDate</th>
+
+                <th>@item.Status</th>
+                <th>@item.Category.CategoryName</th>
+                <th><a href="/Product/ProductDelete/@item.Id" class="btn btn-danger">Sil</a></th>
+                <th><a href="/Product/GetProduct/@item.Id" class="btn btn-info">Güncelle</a></th>
 
 
-        </tr>
+            </tr>
         }
     </tbody>
 
 </table>
+@Html.PagedListPager((IPagedList)Model, page =>Url.Action("Index", new { page }))
 <a href="/Product/ProductAdd/" class="btn btn-primary">Ürün Ekle</a>
-<a href="/Product/ReportWizardProduct/" class="btn btn-primary" >Yazdır</a>
+<a href="/Product/ReportWizardProduct/" class="btn btn-primary">Yazdır</a>
 
